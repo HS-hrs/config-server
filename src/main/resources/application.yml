@@ -4,18 +4,20 @@ server:
 spring:
   application:
     name: config-server
+  output:
+    ansi:
+      enabled: always
 
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/HS-hrs/hs-hrs-config
+          uri: https://github.com/HS-hrs/config-server.git
           default-label: main
           search-paths:
             - user-service-config
             - employee-service-config
             - vacation-service-config
-
 eureka:
   client:
     service-url:
