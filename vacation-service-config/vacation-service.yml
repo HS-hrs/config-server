@@ -1,8 +1,29 @@
 spring:
   application:
     name: vacation-service
-# server:
-#   port: 8083
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/vacationDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.springframework.web: DEBUG
+
 eureka:
   client:
     register-with-eureka: true
