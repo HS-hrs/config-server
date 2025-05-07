@@ -21,6 +21,14 @@ spring:
       settings:
         web-allow-others: true
 
+springdoc: 
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  packages-to-scan:
+    - HS_hrs.employee_service.Controller
+
 logging:
   level:
     org.hibernate.SQL: debug
