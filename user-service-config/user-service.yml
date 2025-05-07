@@ -10,7 +10,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect #hibernate가 사용하는 데이터베이스 플랫폼
     hibernate:
-      ddl-auto: update #hibernate가 데이터베이스 스키마를 자동으로 생성하거나 업데이트
+      ddl-auto: create #hibernate가 데이터베이스 스키마를 자동으로 생성하거나 업데이트
     show-sql: true #hibernate가 실행되는 SQL문을 콘솔에 출력
 
   h2:
