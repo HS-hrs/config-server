@@ -2,10 +2,11 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:h2:mem:testdb #인메모리 h2데이터베이스 사용(mem: 인메모리)
+    url: jdbc:h2:tcp://localhost/~/userDB 
     driver-class-name: org.h2.Driver
     username: sa
     password:
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect #hibernate가 사용하는 데이터베이스 플랫폼
     hibernate:
@@ -18,6 +19,11 @@ spring:
       path: /h2-console #h2 콘솔 경로(http://localhost:포트번호/h2-console)
       settings:
         web-allow-others: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.springframework.web: DEBUG
 # server:
 #   port: 0
 eureka:
