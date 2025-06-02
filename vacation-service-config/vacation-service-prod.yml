@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: vacation-service
+
+    datasource:
+      url: jdbc:mysql://mysql-container:3306/vacation_db?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true 
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  packages-to-scan:
+    - HS_hrs.vacation_service.Controller
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.springframework.web: DEBUG
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
