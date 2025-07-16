@@ -8,6 +8,18 @@ spring:
     username: sa
     password:
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: employee-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -40,4 +52,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
-
